@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Movie Database";
+}
+
+
+@model IEnumerable<AddMovie>
+
+<body>
+    <div class="container-fluid">
+        <h1>@ViewData["Title"]</h1>
+        <h1 class="m-5 pt-5 pb-5 text-center">Movie List</h1>
+        <table class="table table-bordered table-center ml-5">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Director</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Edited</th>
+                    <th scope="col">Lent To</th>
+                    <th scope="col">Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AddMovie r in Model)
+                {
+                    <tr>
+                        <td>@r.Category</td>
+                        <td>@r.Title</td>
+                        <td>@r.Year</td>
+                        <td>@r.Director</td>
+                        <td>@r.Rating</td>
+                        <td>@r.Edited</td>
+                        <td>@r.LentTo</td>
+                        <td>@r.Notes</td>
+                        <td style='border-color:transparent'>
+                            <form class="d-inline" id="@r.MovieID" asp-action="EditMovie" method="post">
+                                <input type="hidden" value="@r.MovieID" name="id" />
+                                <span class="card-text p-1">
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                </span>
+                            </form>
+                            <form class="d-inline" id="@r.MovieID" asp-action="DeleteMovies" method="post">
+                                <input type="hidden" value="@r.MovieID" name="id" />
+                                <span class="card-text p-1">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </span>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <h3 class="ml-5"><a asp-controller="home" asp-action="AddMovie">Add AnotherMovie</a></h3>
+    </div>
+</body>

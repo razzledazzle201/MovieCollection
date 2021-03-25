@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Podcasts">Podcasts</a></li>
+                <li><a asp-controller="Home" asp-action="AddMovie">Movie Form</a></li>
+                <li><a asp-controller="Home" asp-action="Database">Movie Database</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <br />
+    <br />
+    <br />
+    <footer>Joel Hilton, Copyright 2021</footer>
+</body>
+
+</html>

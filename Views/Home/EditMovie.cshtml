@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Edit Movies";
+}
+
+
+@model MovieViewModel;
+
+
+<div class="container">
+    <form class="mt-5 ml-5 pt-5 pl-5" asp-action="UpdateMovies" method="post">
+        <div class="form-group">
+            <label asp-for="AddMovieModel.Title">Title</label>
+            <input class="form-control" asp-for="AddMovieModel.Title" />
+            <span asp-validation-for="AddMovieModel.Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AddMovieModel.Category">Category</label>
+            <input class="form-control" asp-for="AddMovieModel.Category" />
+            <span asp-validation-for="AddMovieModel.Category" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AddMovieModel.Year">Year</label>
+            <input class="form-control" asp-for="AddMovieModel.Year" />
+            <span asp-validation-for="AddMovieModel.Year" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AddMovieModel.Director">Director</label>
+            <input class="form-control" asp-for="AddMovieModel.Director" />
+            <span asp-validation-for="AddMovieModel.Director" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AddMovieModel.Rating">Rating</label>
+            <select class="form-select" asp-for="AddMovieModel.Rating">
+                <option value="">Select One</option>
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+            <span class="text-danger" asp-validation-for="AddMovieModel.Rating"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AddMovieModel.LentTo">Lent To</label>
+            <input class="form-control" asp-for="AddMovieModel.LentTo" />
+            <span asp-validation-for="AddMovieModel.LentTo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AddMovieModel.Edited">Edited?</label>
+            <input class="" asp-for="AddMovieModel.Edited" />
+        </div>
+        <div class="form-group">
+            <label asp-for="AddMovieModel.Notes">Notes</label>
+            <input class="form-control" asp-for="AddMovieModel.Notes" />
+            <span asp-validation-for="AddMovieModel.Notes" class="text-danger"></span>
+        </div>
+
+        <input class="btn btn-primary " type="submit">
+
+    </form>
+</div>

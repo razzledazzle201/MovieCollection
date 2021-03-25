@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Add Movie";
+}
+
+@model MovieCollection.Models.AddMovie;
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <!--Form for entering in a new movier-->
+    <div class="container">
+        <form class="mt-5 ml-5 pt-5 pl-5" asp-action="AddMovie" method="post" id="newMovieForm">
+            <div class="form-group">
+                <label asp-for="Title">Title</label>
+                <input class="form-control" asp-for="Title" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category">Category</label>
+                <input class="form-control" asp-for="Category" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year">Year</label>
+                <input class="form-control" asp-for="Year" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Director">Director</label>
+                <input class="form-control" asp-for="Director" />
+                <span asp-validation-for="Director" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Rating">Rating:</label>
+                @Html.DropDownListFor(m => m.Rating,
+                        new SelectList(Enum.GetValues(typeof(Rating))),
+                        "Select Rating")
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LentTo">Lent To</label>
+                <input class="form-control" asp-for="LentTo" />
+                <span asp-validation-for="LentTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edited">Edited:</label>
+                <select asp-for="Edited">
+                    <option value="">Select One</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes">Notes</label>
+                <input class="form-control" asp-for="Notes" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            @*<input id="submitButton" type="submit" value="Submit Movie" />*@
+            <input type="submit" value="Submit" id="btnsubmit" onclick="resetForm()">
+            <input asp-action="Database" type="submit" value="See All Movies" />
+        </form>
+    </div>
+</div>
